@@ -6,28 +6,29 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
+
 export default {
   data() {
     return {};
   },
   computed: {
-    //带命名空间获取state的方法
+    // 带命名空间获取state的方法
   // ...mapState('user',['username'])
   //  ...mapState('user',{
   //     username:state=>state.username
   //   })
-     //不带命名空间的写法
-   ...mapState({
-      username:state=>state.user.username
-    })
+    // 不带命名空间的写法
+    ...mapState({
+      username: state => state.user.username,
+    }),
   },
   methods: {
-    updateUser(){
+    updateUser() {
       // this.$store.commit('user/updateuser')
-       this.$store.commit('updateuser','youare')
-    }
-  }
+      this.$store.commit('updateuser', 'youare');
+    },
+  },
 };
 </script>
 
@@ -62,4 +63,3 @@ export default {
   }
 }
 </style>
-

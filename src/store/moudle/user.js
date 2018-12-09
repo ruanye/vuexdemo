@@ -1,14 +1,14 @@
-const user ={
-    namespaced: false,//命名空间
-    state:{
-        username:'admin'
+const user = {
+  namespaced: false, // 命名空间
+  state: {
+    username: 'admin',
+  },
+  actions: {},
+  mutations: {
+    updateuser(state, param) {
+      state.username = `${param}boss`;
     },
-    actions:{},
-    mutations:{
-        updateuser(state,param){
-            state.username=`${param}boss`
-        }
-    },
-    getters:{}    
-}
-export default user
+  },
+  getters: {},
+};
+export default user;

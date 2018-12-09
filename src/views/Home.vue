@@ -18,39 +18,46 @@
   </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
+import * as Types from '../store/mutations-types'
 export default {
-  data () {
-    return {}
-   },
-  computed:{
-   
-     
-   },
-   methods:{
-     //同步触发
-    increase(){
-      this.$store.commit('addcount')
+  data() {
+    return {};
+  },
+  computed: {
+
+
+  },
+  methods: {
+    ...mapMutations(
+      {
+        increase:Types.ADD_COUNT //this.increase 映射成 Types.ADD_COUNT/'ADD_COUNT'
+      }),
+    // 
+    // 同步触发
+    // increase() {
+    //   this.$store.commit(Types.ADD_COUNT);//'addcount'
+    // },
+    // 异步触发
+    increaseA() {
+      this.$store.dispatch('except');
     },
-    //异步触发
-    increaseA(){
-      this.$store.dispatch('except')
-    },
-    //参数
-    increaseB(){
-      //一个参数 
+    // 参数
+    increaseB() {
+      // 一个参数
       // this.$store.commit('minucount',3)
-      //多个参数
-       this.$store.commit('minucount',{a:13,b:9})
-       
+      // 多个参数
+      this.$store.commit('minucount', { a: 13, b: 9 });
+
       // this.$store.commit({
       //   type:'minucount',
       //   a:14,
       //   b:9
       // })
-    }
+    },
 
-   }
-}
+  },
+};
 </script>
 
 
@@ -60,7 +67,7 @@ export default {
 }
 .vuexbox{
    position: relative;
-   
+
   text-align: center;
   button,span{
     display: inline-block;
@@ -79,11 +86,10 @@ export default {
     background: #fff;
     color: #000;
     font-size: 36px;
-   
+
   }
- 
+
 
 }
 
 </style>
-

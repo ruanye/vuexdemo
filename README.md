@@ -13,7 +13,7 @@
  组件(或者全局)触发dispatch[写法：this.$store.dispatch('事件名',参数《可选项》)] --->actions 写一个同dispatch事件名相同的函数，参数是{commit}和传的值 --->通过commit提交给mutations[写法：commit('事件名一般会和aciton的方法同名')]--->mutations写事件处理操作state 
  >辅助函数运用时候的特点 
 值 mapState mapGetters  放在computed 里面
-函数 mapActions mapMutions  放在methods里面 
+函数 mapActions mapMutations  放在methods里面 
 > moudle 的注意事项
 有命名空间的mapState的时候 可以传递模块名 
 没有命名空间的不能传递模块名
@@ -29,7 +29,27 @@
 
  import createLogger from 'vuex/dist/logger'
 
- 
- 
+ ####vuex 拆分的流程 步骤
+ 默认导出 export default 
+ 引入    用import引入
+ 挂载    放在Vuex.Store实例对象上 
+>拆分的原理  把1的写法变成3的写法 
+//1
+let store= {
+   info:{
+     name:'lili'
+   }
+} 
+//2
+let info = {name:'lili'}
+let store = {
+  info:info
+}
+//3
+let info = {name:'lili'}
+let store = {
+  info
+}
+
  
   
